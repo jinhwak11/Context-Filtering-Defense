@@ -47,7 +47,6 @@ parser.add_argument("--accumulation_steps", type=int, default=8)
 parser.add_argument("--num_epoch", type=int, default=1)
 parser.add_argument("--max_steps", type=int, default=None, help="Maximum optimizer steps (overrides num_epoch)")
 parser.add_argument("--lr", type=float, default=5e-5)
-
 parser.add_argument("--checkpoint_save_steps", type=int, default=100)
 
 args = parser.parse_args()
@@ -80,7 +79,7 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 
 
 # =========================
-# Helpers
+# dataset generation
 # =========================
 def generate_noise(tokenizer, original_text, p=0.2, n=10):
     noisy = []
@@ -384,7 +383,7 @@ for epoch in range(args.num_epoch):
 
 
 # =========================
-# Save
+# Save a trained model
 # =========================
 model.save_pretrained(SAVE_DIR)
 tokenizer.save_pretrained(SAVE_DIR)
