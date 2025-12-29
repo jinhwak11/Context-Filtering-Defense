@@ -167,7 +167,7 @@ tokenizer.pad_token_id = tokenizer.eos_token_id
 # =========================
 # Load malicious prompts
 # =========================
-with open(args.template_internal_thoughts) as f:
+with open(args.malicious_path) as f:
     malicious = [l.strip() for l in f if l.strip()]
 
 
@@ -200,7 +200,7 @@ with open(args.template_path, encoding="utf-8") as f:
 with open(args.template_internal_thoughts) as f:
     internal_thought = [l.strip() for l in f if l.strip()]
     
-assert len(templates) == len(internal_thought), print("Internal Thought of each prompt should be given") 
+assert len(templates) == len(internal_thought),  "Each template must have a corresponding internal thought"
 
 template_attacks = []
 for m in malicious:
@@ -338,11 +338,17 @@ loader = DataLoader(
     },
 )
 
+total_optim_steps = (
+    args.max_steps
+    if args.max_steps is not None
+    else len(loader) * args.num_epoch // args.accumulation_steps
+)
+
 scheduler = get_scheduler(
     "linear",
     optimizer,
     0,
-    max(1, len(loader) * args.num_epoch // args.accumulation_steps),
+    max(1, total_optim_steps),
 )
 
 global_step = 0 
@@ -362,8 +368,8 @@ for epoch in range(args.num_epoch):
             optimizer.step()
             scheduler.step()
             optimizer.zero_grad()
-            
-        global_step += 1
+            global_step += 1
+
         if args.max_steps and global_step >= args.max_steps:
             print(f"[Info] Reached max_steps={args.max_steps}.")
             break

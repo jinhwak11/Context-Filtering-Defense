@@ -3,8 +3,8 @@
 Context Filtering is a defense method against jailbreak attacks that **removes misleading contextual cues used to conceal harmful intent** and **extracts the core user prompt**.
 
 
-![Overview of Context Filtering Defense](image/CF_overview.png
-)
+<img src="image/CF_overview.png" alt="Overview of Context Filtering Defense" width="400">
+
 
 ---
 
@@ -51,6 +51,12 @@ python context_filtering_train.py \
   --template_path input/template.jsonl \
   --template_internal_thoughts input/template_internal_thoughts.txt
 ```
+> **Note on Input Datasets**
+>
+> The datasets provided in the `input/` directory are **example formats only**.
+> Users are expected to construct their **own datasets following the same format**
+> when training or evaluating the Context Filtering model.
+
 
 ### Adding Custom Examples to the Training Prompt
 
@@ -85,11 +91,11 @@ Given an input prompt, the Context Filtering model:
 
 ### 2.1  Required Inputs
 
-| Argument         | Description                                                             |
-|------------------|-------------------------------------------------------------------------|
-| `--model_path`   | Path to the trained Context Filtering model checkpoint                  |
-| `--dataset_path` | TXT file containing one input prompt per line                           |
-| `--verbose`      | (Optional) Print the internal thought and output per prompt |
+| Argument            | Description                                                             |
+|---------------------|-------------------------------------------------------------------------|
+| `--model_path`      | Path to the trained Context Filtering model checkpoint                  |
+| `--dataset_path`    | TXT file containing one input prompt per line                           |
+| `--verbose`         | (Optional) Print the internal thought and output per prompt |
 
 
 > **Note:** 
