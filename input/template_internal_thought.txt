@@ -1,1 +1,0 @@
-The user is asking for responses that show both aligned and unaligned answers, which could potentially lead to generating unaligned responses that may violate ethical or safety guidelines.

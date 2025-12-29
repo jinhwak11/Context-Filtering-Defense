@@ -123,11 +123,11 @@ def infer_with_prefix(
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_path", required=True)
+    parser.add_argument("--dataset_path",required=True)
     parser.add_argument("--max_seq_length", type=int, default=2048)
     parser.add_argument("--model_cache_dir",default= None)
     parser.add_argument("--load_in_4bit", action="store_true", default=True)
     parser.add_argument("--dtype", type=str, default=None)
-    parser.add_argument("--dataset_path",required=True)
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--out_dir", default=None)
     parser.add_argument("--seed", type=int, default=3407)
@@ -225,7 +225,7 @@ def main():
             print(ex)
             print("\n- FULL GENERATION (Internal Thought + Response):")
             print(raw_text)
-            print("\n- PARSED OUTPUT:")
+            print("\n- OUTPUT:")
             print(out)
             print("=" * 80)
             
