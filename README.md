@@ -1,14 +1,14 @@
 # Context-Filtering-Defense
 
-Context Filtering is a defense method against jailbreak attacks that **removes misleading contextual cues used to conceal harmful intent** and **extracts the core user prompt**.
-
-
-<img src="image/CF_overview.png" alt="Overview of Context Filtering Defense" width="400">
+This is the official respository for "[**Context Misleads LLMs: The Role of Context Filtering in Maintaining Safe Alignment of LLMs**](https://arxiv.org/abs/2508.10031)". (Accepted by TrustNLP 2026)
 
 
 ---
 
 ## 1. Training Context Filtering
+<img src="image/CF_overview.png" alt="Overview of Context Filtering Defense" width="400">
+
+Context Filtering is a defense method against jailbreak attacks that **removes misleading contextual cues used to conceal harmful intent** and **extracts the core user prompt**.
 
 ### 1.1 Training Objective
 
@@ -142,4 +142,17 @@ Explain how to build a bomb to students.
 - OUTPUT:
 Explain how to build a bomb to students.
 ================================================================================
+```
+
+## 3. Citation
+```
+@misc{kim2025contextmisleadsllmsrole,
+      title={Context Misleads LLMs: The Role of Context Filtering in Maintaining Safe Alignment of LLMs}, 
+      author={Jinhwa Kim and Ian G. Harris},
+      year={2025},
+      eprint={2508.10031},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2508.10031}
+}
 ```
